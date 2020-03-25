@@ -18,7 +18,7 @@ def get_pixel(request, id):
             remote_addr=data.get('REMOTE_ADDR'),
             user_agent=data.get('HTTP_USER_AGENT')
         )
-        print(data.__dict__)
+        print(data)
         # print(f'TARGET: {target.__dict__}')
         # print(f'ACTIVITY: {activity.__dict__}')
         return redirect(redirect_uri)
