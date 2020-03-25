@@ -18,8 +18,9 @@ def get_pixel(request, id):
             remote_addr=data.get('REMOTE_ADDR'),
             user_agent=data.get('HTTP_USER_AGENT')
         )
-        print(f'TARGET: {target.__dict__}')
-        print(f'ACTIVITY: {activity.__dict__}')
+        print(data.__dict__)
+        # print(f'TARGET: {target.__dict__}')
+        # print(f'ACTIVITY: {activity.__dict__}')
         return redirect(redirect_uri)
     except Exception as e:
         print(f'EXCEPTION: << id {id} >> {str(e)}')
