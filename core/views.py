@@ -15,12 +15,13 @@ def get_pixel(request, id):
         data = request.META
         activity = Activity.objects.create(
             target=target,
-            remote_addr=data.get('REMOTE_ADDR'),
+            # remote_addr=data.get('REMOTE_ADDR'),
+            remote_addr=data.get('HTTP_X_FORWARDED_FOR'),
             user_agent=data.get('HTTP_USER_AGENT')
         )
         print(data)
-        # print(f'TARGET: {target.__dict__}')
-        # print(f'ACTIVITY: {activity.__dict__}')
+        print(f'TARGET: {target.__dict__}')
+        print(f'ACTIVITY: {activity.__dict__}')
         return redirect(redirect_uri)
     except Exception as e:
         print(f'EXCEPTION: << id {id} >> {str(e)}')
